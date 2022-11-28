@@ -62,6 +62,9 @@ public class Lambda01 {
     public static void yazdir(int a){
         System.out.print(a+ " ");
     }
+    public static void yazdir(String a){
+        System.out.print(a+ " ");
+    }
     public static void printElFunctional2(List<Integer> sayi){
         sayi.
                 stream().
