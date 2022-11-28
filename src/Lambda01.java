@@ -9,6 +9,7 @@ import java.util.List;
       3)  "Functional Programming" hiz, code kisaligi, code okunabilirligi
           ve hatasiz code yazma acilarindan cok faydalidir.
       4)  Lambda sadece collections'larda(List, Queue ve Set) ve array'lerde kullanilabilir ancak map'lerde kullanılmaz.
+ Note: forEach() terminal operatorudur. terminal operatoru geldigi an stream biter, baska method cagiramayiz
 */
 public class Lambda01 {
     public static void main(String[] args) {
