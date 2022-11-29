@@ -9,6 +9,8 @@ public class Lambda05 {
         System.out.println(toplaIlkXCift(4));
         System.out.println(ilkXpozitifTek(3));
         ikininIlkXKuvveti(3);
+        System.out.println();
+        sayininIlkXKuvveti(4,2);
     }
 
 //---------------------------------------------------------------------------------------------------------
@@ -74,4 +76,18 @@ public class Lambda05 {
                 limit(x).
                 forEach(Lambda01::yazdir); //2 4 8
     }
+
+//---------------------------------------------------------------------------------------------------------
+//TASK 06 --> Istenilen bir sayinin ilk x kuvvetini ekrana yazdiran programi  create ediniz.
+    public static void sayininIlkXKuvveti(int x,int y){ //4 , 2
+        IntStream.
+                iterate(y,t-> t*y). // gelen sayi 2. 2nin kuvvetleri
+                limit(x). // 4. kuvvete kadar
+                forEach(Lambda01::yazdir); //2 4 8 16
+
+    }
+
+
+
+
 }
