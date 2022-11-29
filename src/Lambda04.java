@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Lambda04 {
@@ -13,7 +10,14 @@ public class Lambda04 {
             notOrt (int)
             olan POJO clas craete edip main method içinde 5 farklı obj'den List create ediniz.
 */
-
+/*
+     Pojo(Plain Old Java Object) Class nedir
+     1)Variable ları private olan (Encapsulation yapılmış olan)
+     2)Bir parametresiz birde parametreli Constructor olan
+     3)Getter ve Setter methodlar olan
+     4)toString() methodu olan
+     Class'lara kısaltma isim olarak Pojo(Plain Old Java Object) Class denir
+*/
     public static void main(String[] args) {
         University u01 = new University("bogazici","matematik",571,93);
         University u02 = new University("itu","matematik",600,81);
@@ -27,6 +31,13 @@ public class Lambda04 {
         System.out.println(matBolumVarMi(unv));
         System.out.println();
         System.out.println(ogrSayisiBykSirala(unv));
+        System.out.println();
+        matBolumSayisi(unv);
+        System.out.println();
+        System.out.println(enBykNot(unv));
+        System.out.println();
+        System.out.println(enKckNotOrt(unv));
+
 
     }
 
@@ -56,4 +67,38 @@ public class Lambda04 {
                 sorted(Comparator.comparing(University::getOgrcSayisi).reversed()). // universiteler öğrenci sayısına göre tersden sıralandı
                 collect(Collectors.toList()); // Stream yapısı List yapısına dönüştürüldü
     }
+
+//---------------------------------------------------------------------------------------------------------
+//task 04-->"matematik" bolumlerinin sayisini  print ediniz.
+    public static int matBolumSayisi(List<University> unv){
+        return (int) unv. // int yazmak yerine method data tipini long da yapabiliriz ama memory'i yormak istemeyiz
+                stream().
+                filter(t->t.getBolum().contains("mat")). //bolumu mat olan unv. sectim
+                count(); //secilen uni sayisini aldim
+    }
+
+//---------------------------------------------------------------------------------------------------------
+//task 05-->Ogrenci sayilari 550'dan fazla olan universite'lerin en buyuk notOrt'unu bulunuz.
+    public static OptionalInt enBykNot(List<University> unv){ //int yaptigimiz method data tipi
+        return unv.                                                     //OptionalInt oldu cunku null deger gelebilecegi icin cte verdi
+                stream().
+                filter(t->t.getOgrcSayisi()>550).
+                mapToInt(t->t.getNotOrt()). //mapToInt() kullandigimiz icin int degerler gelecek. int methodlari da geliyor
+                max(); // mapToInt methoduyla geldi
+
+    }
+
+//---------------------------------------------------------------------------------------------------------
+//task 06-->Ogrenci sayilari 1050'dan az olan universite'lerin en kucuk notOrt'unu bulunuz.
+    public static OptionalInt enKckNotOrt(List<University> unv) {
+        return unv.
+                stream().
+                filter(t->t.getOgrcSayisi()<1050).
+                mapToInt(t->t.getNotOrt()).
+                min();
+    }
+
+
+
 }
+
