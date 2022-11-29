@@ -11,6 +11,8 @@ public class Lambda05 {
         ikininIlkXKuvveti(3);
         System.out.println();
         sayininIlkXKuvveti(4,2);
+        System.out.println();
+        System.out.println(sayininFaktoriyeli(5));
     }
 
 //---------------------------------------------------------------------------------------------------------
@@ -84,10 +86,22 @@ public class Lambda05 {
                 iterate(y,t-> t*y). // gelen sayi 2. 2nin kuvvetleri
                 limit(x). // 4. kuvvete kadar
                 forEach(Lambda01::yazdir); //2 4 8 16
-
     }
 
+//---------------------------------------------------------------------------------------------------------
+//TASK 07 --> Istenilen bir sayinin faktoriyelini hesaplayan programi  create ediniz.
+    public static int sayininFaktoriyeli(int x){ //x=5
+        return IntStream.
+                rangeClosed(1,x). // 1 2 3 4 5
+                reduce(1,(t,u)->t*u);
+                //1,1->1
+                //1,2->2
+                //2*3->6
+                //6*4->24
+                //24*5->120
 
+
+    }
 
 
 }
