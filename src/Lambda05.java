@@ -4,11 +4,11 @@ public class Lambda05 {
     public static void main(String[] args) {
         System.out.println(topla(5));
         System.out.println(toplaTumu(5));
-        System.out.println(ciftTopla(15));
-        System.out.println(ilkXCiftTopla(15));
-        System.out.println(toplaIlkXCift(15));
-        System.out.println(ilkXpozitifTek(15));
-        ikininIlkXKuvveti(3).
+        System.out.println(ciftTopla(5));
+        //System.out.println(ilkXCiftTopla(4));
+        System.out.println(toplaIlkXCift(4));
+        System.out.println(ilkXpozitifTek(3));
+        ikininIlkXKuvveti(3);
     }
 
 //---------------------------------------------------------------------------------------------------------
@@ -68,9 +68,10 @@ public class Lambda05 {
 
 //---------------------------------------------------------------------------------------------------------
 //TASK 05 --> 2'nin ilk pozitif x kuvvetini ekrana yazdiran programi  create ediniz.
-    public static void ikininIlkXKuvveti(int x){
+    public static void ikininIlkXKuvveti(int x){ //x=3
         IntStream.
-                iterate(2,t-> t*2).limit(). //2 4 8 16.. 2 nin kuvvetleri
-
+                iterate(2,t-> t*2). //2 4 8 16.. 2 nin kuvvetleri
+                limit(x).
+                forEach(Lambda01::yazdir); //2 4 8
     }
 }
